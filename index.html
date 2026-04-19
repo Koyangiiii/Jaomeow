@@ -6,307 +6,281 @@
     <title>Koyangi - Store</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600&family=Slackey&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600&family=Slackey&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --color-dark: #632a4a;
-            --color-purple: #f8c8ff;
-            --color-cyan: #fff0f5;
-            --color-pink: #ffb7d5;
-            --color-light-pink: #ffe4ef;
-            --color-white: #ffffff;
-            --color-gold: #ffd700;
+            --bg-paper: #fff9fb;
+            --main-pink: #ffb7d5;
+            --deep-berry: #632a4a;
+            --soft-purple: #f8c8ff;
+            --accent-gold: #ffd700;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Mitr', sans-serif;
-            background-color: var(--color-light-pink);
-            color: var(--color-dark);
-            overflow-x: hidden;
-            line-height: 1.4;
-            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+            background-color: var(--main-pink);
+            background-image: radial-gradient(#ffffff 15%, transparent 15%);
+            background-size: 20px 20px;
+            color: var(--deep-berry);
+            padding: 15px;
         }
 
-        h1, h2, h3, .font-slackey {
-            font-family: 'Slackey', cursive;
-            font-weight: 400;
-        }
-
-        /* Mobile Optimization: Headings */
-        h2.font-slackey { font-size: 1.8rem !important; }
-        h3.font-slackey { font-size: 1.2rem !important; }
-
-        .text-stroke {
-            color: var(--color-pink);
-            -webkit-text-stroke: 1.2px var(--color-dark);
-            text-shadow: 2px 2px 0px rgba(99, 42, 74, 0.2);
-        }
-
-        .sticker-effect {
-            border: 3px solid var(--color-dark);
-            border-radius: 20px;
-            box-shadow: 4px 4px 0px var(--color-dark);
-            background-color: var(--color-white);
+        /* Unique Hand-drawn Container */
+        .canvas {
+            background: var(--bg-paper);
+            max-width: 500px;
+            margin: 0 auto;
+            border: 4px solid var(--deep-berry);
+            border-radius: 40px 15px 40px 15px;
+            box-shadow: 12px 12px 0px var(--deep-berry);
+            overflow: hidden;
             position: relative;
         }
 
-        .section-container {
-            padding: 30px 15px;
+        .section { padding: 25px 20px; border-bottom: 4px solid var(--deep-berry); }
+
+        /* Custom Typography */
+        .font-slackey { font-family: 'Slackey', cursive; }
+        .title-stroke {
+            color: white;
+            -webkit-text-stroke: 1.5px var(--deep-berry);
+            text-shadow: 3px 3px 0px var(--main-pink);
+        }
+
+        /* UI: Washi Tape Header */
+        .header {
+            background: #ffecf2;
+            padding: 40px 20px;
             text-align: center;
             position: relative;
-            border-bottom: 3px dashed var(--color-pink);
-            overflow: hidden;
+        }
+        .washi-tape {
+            position: absolute;
+            top: 10px; right: -20px;
+            background: var(--soft-purple);
+            padding: 5px 40px;
+            transform: rotate(15deg);
+            border: 2px solid var(--deep-berry);
+            font-size: 0.7rem;
+            font-weight: bold;
+            box-shadow: 3px 3px 0px rgba(0,0,0,0.1);
         }
 
-        /* Header Optimization for Mobile */
-        .header {
-            background-color: #ffcce0;
-            padding: 50px 15px 30px;
-            border-bottom: 6px double var(--color-dark);
-            background-image: radial-gradient(var(--color-pink) 10%, transparent 10%);
-            background-size: 20px 20px;
-        }
-
-        .logo-title {
-            font-size: 3.2rem; /* Adjusted for mobile */
-            letter-spacing: 2px;
-            margin: 10px 0;
-            line-height: 1.1;
-            font-weight: 800;
-            -webkit-text-stroke: 2px var(--color-dark); 
-        }
-
-        .logo-word span { color: var(--color-white); text-shadow: 3px 3px 0px var(--color-pink); }
+        .logo-area { margin: 20px 0; }
+        .logo-text { font-size: 3.5rem; line-height: 1; }
         
-        .intro-box {
-            background-color: rgba(255, 255, 255, 0.9);
-            border: 3px double var(--color-dark);
-            border-radius: 18px;
-            padding: 15px;
-            margin-top: 15px;
-            width: 100%;
-            font-weight: 600;
-            box-shadow: 5px 5px 0px var(--color-pink);
-            font-size: 0.9rem;
-            color: var(--color-dark);
-        }
-
-        /* Grid Optimization for Mobile */
-        .grid-container {
-            display: grid;
-            grid-template-columns: 1fr; /* Single column for mobile */
-            gap: 20px;
-            width: 100%;
-        }
-
-        .img-placeholder {
-            width: 100%;
-            height: 140px;
-            background-color: var(--color-light-pink);
-            border-radius: 15px;
-            margin-bottom: 12px;
-            border: 2px dashed var(--color-pink);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .info-card {
-            padding: 20px;
-            text-align: left;
-            font-size: 0.9rem;
-        }
-
-        .portfolio-buttons {
-            display: flex;
-            flex-direction: column; /* Stack buttons on mobile */
-            gap: 10px;
-            width: 100%;
-            padding: 0 10px;
-        }
-
-        .btn-portfolio, .btn-contact {
-            width: 100%; /* Full width for easier tapping */
-            padding: 12px;
-            font-size: 1rem;
-            justify-content: center;
-            display: flex;
-            align-items: center;
-            border: 3px solid var(--color-dark);
+        .intro-cloud {
+            background: white;
+            border: 3px solid var(--deep-berry);
             border-radius: 20px;
-            background-color: var(--color-white);
-            color: var(--color-dark);
-            font-weight: 600;
-            text-decoration: none;
-            box-shadow: 3px 3px 0px var(--color-dark);
+            padding: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            position: relative;
+            box-shadow: 4px 4px 0px var(--soft-purple);
         }
 
-        .price-tag {
-            background-color: var(--color-dark);
-            color: var(--color-pink);
-            padding: 2px 12px;
+        /* UI: Scallop Buttons */
+        .btn-grid { display: grid; gap: 10px; margin-top: 15px; }
+        .btn-custom {
+            background: white;
+            border: 3px solid var(--deep-berry);
+            padding: 12px;
+            border-radius: 50px;
+            font-family: 'Mitr';
+            font-weight: 600;
+            color: var(--deep-berry);
+            cursor: pointer;
+            box-shadow: 4px 4px 0px var(--deep-berry);
+            transition: 0.2s;
+            text-decoration: none;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .btn-custom:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0px var(--deep-berry); }
+
+        /* UI: Memo Pad Style Cards */
+        .card {
+            background: white;
+            border: 3px solid var(--deep-berry);
             border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -10px; left: 50%; transform: translateX(-50%);
+            width: 40px; height: 15px;
+            background: rgba(255, 215, 0, 0.6); /* Tape effect */
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .img-box {
+            width: 100%; height: 120px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem;
+            border: 2px dashed var(--deep-berry);
+        }
+
+        .price-sticker {
+            background: var(--deep-berry);
+            color: var(--main-pink);
+            padding: 2px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            float: right;
+        }
+
+        .rules-zone {
+            background: #fff0f5;
+            border-radius: 20px;
+            padding: 20px;
+            border: 3px dashed var(--deep-berry);
+        }
+
+        .footer {
+            background: var(--deep-berry);
+            color: white;
+            text-align: center;
+            padding: 25px;
             font-size: 0.85rem;
         }
 
-        .rules-box {
-            background-color: var(--color-pink);
-            border: 3px solid var(--color-dark);
+        /* Modal Custom */
+        .modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(99, 42, 74, 0.7);
+            display: none; justify-content: center; align-items: center;
+            z-index: 100; padding: 20px;
+        }
+        .modal-paper {
+            background: white;
+            padding: 30px;
             border-radius: 20px;
-            padding: 20px;
-            margin-top: 25px;
-            text-align: left;
-            box-shadow: 5px 5px 0px var(--color-dark);
-        }
-
-        .rules-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            color: var(--color-dark);
-        }
-
-        footer {
-            background-color: var(--color-dark);
-            color: var(--color-pink);
-            padding: 30px 15px;
-            font-size: 0.9rem;
+            border: 4px solid var(--deep-berry);
+            width: 100%; max-width: 350px;
+            position: relative;
         }
     </style>
 </head>
 <body>
 
-    <header class="section-container header">
-        <div style="position: absolute; top: 10px; display: flex; gap: 5px; z-index: 10;">
-            <div style="width: 12px; height: 12px; background: var(--color-pink); border-radius: 50%; border: 1.5px solid var(--color-dark);"></div>
-            <div style="width: 12px; height: 12px; background: var(--color-white); border-radius: 50%; border: 1.5px solid var(--color-dark);"></div>
-            <div style="width: 12px; height: 12px; background: var(--color-gold); border-radius: 50%; border: 1.5px solid var(--color-dark);"></div>
-        </div>
-
-        <div style="margin-top: 5px; margin-bottom: 15px;">
-            <button style="background: none; border: 2px dashed var(--color-dark); padding: 5px 12px; border-radius: 12px; font-size: 0.8rem; font-weight: 600; color: var(--color-dark);">
-                ✨ เช็คคิวงานที่นี่ ✨
-            </button>
-            <div style="font-size: 0.75rem; margin-top: 5px; font-weight: 600;">Status: เปิดรับออเดอร์ปกติ 🎀</div>
-        </div>
-
-        <h3 class="font-slackey" style="color: var(--color-dark); letter-spacing: 1px; margin-bottom: 5px;">👑 ROYAL WELCOME 👑</h3>
-        <div class="logo-title text-stroke font-slackey">
-            <div class="logo-word">
-                <span>K</span><span>o</span><span>y</span><span>a</span><span>n</span><span>g</span><span>i</span>
+    <div class="canvas">
+        <header class="section header">
+            <div class="washi-tape">#OPEN_NOW</div>
+            <button style="background:var(--accent-gold); border:2px solid var(--deep-berry); border-radius:10px; padding:4px 12px; font-weight:700; font-size:0.7rem;">✨ เช็คคิวงานที่นี่ ✨</button>
+            <div style="font-size: 0.7rem; margin-top: 8px; font-weight: 600;">Status: เปิดรับออเดอร์ปกติ 🎀</div>
+            
+            <div class="logo-area">
+                <p class="font-slackey" style="font-size: 0.8rem; letter-spacing: 2px;">👑 ROYAL WELCOME 👑</p>
+                <h1 class="font-slackey logo-text title-stroke">Koyangi</h1>
             </div>
-        </div>
-        
-        <div class="intro-box">
-            ยินดีต้อนรับเข้าสู่ทางร้าน ร้านเรารับทำ GoogleSheet เว็บเรทราคาแอพพรี เว็บเรทราคางานป้าย เว็บเรทราคาเติมเกมส์ ทางร้านยินดีให้บริการลูกค้าทุกท่านค่ะ
-        </div>
-    </header>
 
-    <section class="section-container portfolio-section">
-        <h2 class="font-slackey text-stroke pink">👑 GALLERIA</h2>
-        <p style="font-weight: 500; font-size: 0.9rem; margin-bottom: 15px;">เลือกชมผลงานระดับพรีเมียม</p>
-        <div class="portfolio-buttons">
-            <button class="btn-portfolio" onclick="openModal('modal-bright')">🎀 งานป้าย & โลโก้</button>
-            <button class="btn-portfolio" onclick="openModal('modal-dark')">📊 Google Sheet</button>
-            <button class="btn-portfolio" onclick="openModal('modal-pastel')">🌐 Website Shop</button>
-        </div>
-    </section>
+            <div class="intro-cloud">
+                ยินดีต้อนรับเข้าสู่ทางร้าน ร้านเรารับทำ GoogleSheet เว็บเรทราคาแอพพรี เว็บเรทราคางานป้าย เว็บเรทราคาเติมเกมส์ ทางร้านยินดีให้บริการลูกค้าทุกท่านค่ะ
+            </div>
+        </header>
 
-    <section class="section-container details-section">
-        <h2 class="font-slackey text-stroke cyan" style="margin-bottom: 25px;">SERVICES</h2>
-        
-        <div class="grid-container">
-            <div class="info-card sticker-effect">
-                <div class="img-placeholder" style="background: linear-gradient(45deg, #ffdee9, #b5fffc);">🎨</div>
-                <h3 class="font-slackey text-stroke white" style="color:var(--color-pink);">Logo & Design</h3>
-                <ul style="list-style:none; margin: 10px 0;">
+        <section class="section">
+            <h2 class="font-slackey title-stroke" style="font-size: 1.5rem; text-align: center;">👑 GALLERIA</h2>
+            <p style="text-align: center; font-size: 0.8rem; margin: 5px 0 15px;">เลือกชมผลงานระดับพรีเมียม</p>
+            <div class="btn-grid">
+                <button class="btn-custom" onclick="openModal('modal-bright')">🎀 งานป้าย & โลโก้</button>
+                <button class="btn-custom" onclick="openModal('modal-dark')">📊 Google Sheet</button>
+                <button class="btn-custom" onclick="openModal('modal-pastel')">🌐 Website Shop</button>
+            </div>
+        </section>
+
+        <section class="section" style="background: #fff;">
+            <h2 class="font-slackey title-stroke" style="font-size: 1.5rem; text-align: center; margin-bottom: 25px;">SERVICES</h2>
+            
+            <div class="card">
+                <span class="price-sticker">สอบถามราคา</span>
+                <div class="img-box" style="background: #fff0f5;">🎨</div>
+                <h3 class="font-slackey" style="font-size: 1.1rem;">Logo & Design</h3>
+                <ul style="list-style: none; font-size: 0.85rem; margin-top: 10px; line-height: 1.6;">
                     <li>• รับทำป้ายสินค้า / ป้ายบัญชี</li>
                     <li>• ออกแบบโลโก้ร้านค้า</li>
-                    <li class="highlight-text">• ดีไซน์เนอร์จัดวางให้ฟรี</li>
+                    <li style="color: #d63384; font-weight: bold;">• ดีไซน์เนอร์จัดวางให้ฟรี</li>
                 </ul>
-                <p><strong>เริ่มต้น:</strong> <span class="price-tag">สอบถามราคา</span></p>
             </div>
 
-            <div class="info-card sticker-effect">
-                <div class="img-placeholder" style="background: linear-gradient(45deg, #fff1eb, #ace0f9);">📊</div>
-                <h3 class="font-slackey text-stroke white" style="color:var(--color-purple);">Google Sheet</h3>
-                <ul style="list-style:none; margin: 10px 0;">
+            <div class="card">
+                <span class="price-sticker">ราคาเป็นกันเอง</span>
+                <div class="img-box" style="background: #f5f0ff;">📊</div>
+                <h3 class="font-slackey" style="font-size: 1.1rem;">Google Sheet</h3>
+                <ul style="list-style: none; font-size: 0.85rem; margin-top: 10px; line-height: 1.6;">
                     <li>• ระบบคิวชีต (Queue Sheet)</li>
                     <li>• บันทึกรายรับ-รายจ่าย</li>
-                    <li class="highlight-text">• สรุปยอดอัตโนมัติ</li>
+                    <li style="color: #d63384; font-weight: bold;">• สรุปยอดอัตโนมัติ</li>
                 </ul>
-                <p><strong>เริ่มต้น:</strong> <span class="price-tag">ราคาเป็นกันเอง</span></p>
             </div>
 
-            <div class="info-card sticker-effect">
-                <div class="img-placeholder" style="background: linear-gradient(45deg, #fbc2eb, #a6c1ee);">🌐</div>
-                <h3 class="font-slackey text-stroke white" style="color:var(--color-dark);">Website Shop</h3>
-                <ul style="list-style:none; margin: 10px 0;">
+            <div class="card">
+                <span class="price-sticker">129.-</span>
+                <div class="img-box" style="background: #f0faff;">🌐</div>
+                <h3 class="font-slackey" style="font-size: 1.1rem;">Website Shop</h3>
+                <ul style="list-style: none; font-size: 0.85rem; margin-top: 10px; line-height: 1.6;">
                     <li>• เว็บเรทราคาแอปพรีเมียม</li>
                     <li>• เว็บเรทราคางานป้าย</li>
-                    <li class="highlight-text">• รองรับมือถือ 100%</li>
+                    <li style="color: #d63384; font-weight: bold;">• รองรับมือถือ 100%</li>
                 </ul>
-                <p><strong>เริ่มต้น:</strong> <span class="price-tag">129.-</span></p>
             </div>
-        </div>
 
-        <div class="rules-box">
-            <h3 class="font-slackey text-stroke cyan" style="text-align: center; margin-bottom: 15px;">Royal Terms</h3>
-            <div class="rules-grid">
-                <div>
-                    <strong style="background: #fff; padding: 2px 8px; border-radius: 10px; border: 1.5px solid var(--color-dark); font-size: 0.85rem;">👑 วิธีสั่งงาน</strong>
-                    <p style="font-size: 0.85rem; margin-top: 5px;">แจ้งรายละเอียด > ชำระยอด > รอรับงาน</p>
+            <div class="rules-zone">
+                <h3 class="font-slackey" style="text-align: center; margin-bottom: 15px;">Royal Terms</h3>
+                <div style="font-size: 0.8rem; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div>
+                        <strong style="text-decoration: underline;">👑 วิธีสั่งงาน</strong>
+                        <p>แจ้งรายละเอียด > ชำระยอด > รอรับงาน</p>
+                    </div>
+                    <div>
+                        <strong style="text-decoration: underline;">💖 หมายเหตุ</strong>
+                        <p>งานด่วนมีค่าบริการ / แก้ไขงานได้ตามตกลง</p>
+                    </div>
                 </div>
-                <div>
-                    <strong style="background: #fff; padding: 2px 8px; border-radius: 10px; border: 1.5px solid var(--color-dark); font-size: 0.85rem;">💖 หมายเหตุ</strong>
-                    <p style="font-size: 0.85rem; margin-top: 5px;">งานด่วนมีค่าบริการ / แก้ไขงานได้ตามตกลง</p>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="section-container" style="background-color: var(--color-white);">
-        <h2 class="font-slackey text-stroke purple">GOODNOTE</h2>
-        <div class="grid-container" style="margin-top:20px;">
-            <div class="info-card sticker-effect" style="text-align:center;">
-                <h3 class="font-slackey" style="color: var(--color-pink); font-size: 1rem !important;">Special iOS</h3>
-                <span class="price-tag">20.-</span>
+        <section class="section" style="text-align: center;">
+            <h2 class="font-slackey title-stroke">GOODNOTE</h2>
+            <div class="card" style="margin-top: 15px; display: inline-block; width: 100%;">
+                <h3 class="font-slackey" style="color: var(--main-pink);">Special iOS</h3>
+                <span class="btn-custom" style="display: inline-block; width: auto; padding: 5px 20px; margin-top: 10px;">20.-</span>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="section-container contact-section">
-        <h2 class="font-slackey text-stroke white">CONTACT</h2>
-        <div class="portfolio-buttons" style="margin-top:20px;">
-            <a href="#" class="btn-contact">Facebook</a>
-            <a href="#" class="btn-contact">Line Official</a>
-        </div>
-    </section>
+        <section class="section" style="background: var(--soft-purple);">
+            <h2 class="font-slackey title-stroke" style="text-align: center;">CONTACT</h2>
+            <div class="btn-grid" style="margin-top: 20px;">
+                <a href="#" class="btn-custom">Facebook</a>
+                <a href="#" class="btn-custom">Line Official</a>
+            </div>
+        </section>
 
-    <footer style="text-align: center; font-weight: 600;">
-        👑 ขอบคุณที่ไว้วางใจให้ <br>Koyangi ดูแลคุณ 👑
-    </footer>
-
-    <div class="modal-overlay" id="modal-bright" onclick="closeModal(event, 'modal-bright')">
-        <div class="modal-content sticker-effect">
-            <button style="position:absolute; top:10px; right:15px; background:none; border:none; font-weight:bold;" onclick="forceClose('modal-bright')">X</button>
-            <h3 style="margin-top:10px;">งานป้าย & โลโก้</h3>
-            <p style="font-size:0.9rem; margin:15px 0;">เร็วๆ นี้...</p>
-        </div>
+        <footer class="footer">
+            👑 ขอบคุณที่ไว้วางใจให้ <br>
+            <span class="font-slackey" style="font-size: 1.2rem;">Koyangi</span> ดูแลคุณ 👑
+        </footer>
     </div>
 
+    <div class="modal" id="modal-bright">
+        <div class="modal-paper">
+            <h3 class="font-slackey">งานป้าย & โลโก้</h3>
+            <p style="margin: 15px 0;">เร็วๆ นี้...</p>
+            <button class="btn-custom" style="width: 100%;" onclick="closeModal('modal-bright')">ปิด</button>
+        </div>
+    </div>
     <script>
-        function openModal(modalId) { document.getElementById(modalId).style.display = 'flex'; }
-        function closeModal(event, modalId) { if (event.target.id === modalId) { document.getElementById(modalId).style.display = 'none'; } }
-        function forceClose(modalId) { document.getElementById(modalId).style.display = 'none'; }
+        function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
     </script>
-
 </body>
 </html>
