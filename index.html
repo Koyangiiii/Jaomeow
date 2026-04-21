@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Koyangi Store | Line Art Style</title>
+    <title>Koyangi Store | Full Screen Line Art</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,161 +24,195 @@
     <style>
         body {
             font-family: 'Mitr', sans-serif;
-            background-color: #f0f0f0;
-            -webkit-tap-highlight-color: transparent;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
         }
         
-        /* Brutalist Line Art Style */
+        /* Grid Background Pattern */
+        .grid-bg {
+            background-image: 
+                linear-gradient(#000 1px, transparent 1px),
+                linear-gradient(90deg, #000 1px, transparent 1px);
+            background-size: 20px 20px;
+            background-color: #ffffff;
+            opacity: 0.05;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Checkerboard Pattern Decor */
+        .checkerboard {
+            background-image: conic-gradient(#000 90deg, #fff 90deg 180deg, #000 180deg 270deg, #fff 270deg);
+            background-size: 20px 20px;
+        }
+
         .sketch-border {
-            border: 3px solid #000000;
-            box-shadow: 4px 4px 0px 0px #000000;
+            border: 4px solid #000000;
+            box-shadow: 8px 8px 0px 0px #000000;
         }
         
         .sketch-border-sm {
-            border: 2px solid #000000;
-            box-shadow: 3px 3px 0px 0px #000000;
-        }
-
-        .section-line {
-            border-bottom: 3px solid #000000;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
+            border: 3px solid #000000;
+            box-shadow: 4px 4px 0px 0px #000000;
         }
 
         .horizontal-scroll {
             display: flex;
             overflow-x: auto;
-            gap: 1.2rem;
-            padding: 0.5rem 0.5rem 1.5rem 0.5rem;
+            gap: 1.5rem;
+            padding: 1rem;
             scroll-snap-type: x mandatory;
         }
         
         .scroll-item {
-            flex: 0 0 80%;
-            scroll-snap-align: center;
+            flex: 0 0 300px;
+            scroll-snap-align: start;
         }
 
-        .sketch-badge {
-            border: 2px solid #000000;
-            background: #ffffff;
-            display: inline-block;
-            padding: 2px 12px;
-            transform: rotate(-2deg);
+        /* Decorative Elements */
+        .star-decor {
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            background: #000;
+            width: 30px;
+            height: 30px;
         }
     </style>
 </head>
-<body class="flex justify-center min-h-screen text-black">
+<body class="text-black">
+    <div class="grid-bg"></div>
 
-    <div class="w-full max-w-[420px] bg-white relative border-x-[3px] border-black min-h-screen pb-20">
+    <div class="w-full h-8 checkerboard border-b-4 border-black"></div>
+
+    <main class="w-full min-h-screen px-4 py-8 md:px-12">
         
-        <div class="p-6 border-b-[3px] border-black">
-            <div class="flex items-center gap-4">
-                <div class="w-24 h-24 bg-white sketch-border overflow-hidden">
+        <header class="flex flex-col md:flex-row items-center justify-between gap-8 mb-16">
+            <div class="flex items-center gap-6">
+                <div class="w-32 h-32 bg-white sketch-border rotate-[-2deg] overflow-hidden">
                     <img src="logo.png" alt="Logo" class="w-full h-full object-cover">
                 </div>
                 <div>
-                    <div class="sketch-badge mb-2">
-                        <span class="font-fredoka font-bold text-xs">KOYANGI STORE</span>
+                    <div class="inline-block bg-black text-white px-4 py-1 font-fredoka font-bold text-sm mb-2 transform rotate-1">
+                        EST. 2026
                     </div>
-                    <h1 class="font-fredoka text-4xl font-black leading-none uppercase tracking-tighter">DESIGN<br>STUDIO</h1>
+                    <h1 class="font-fredoka text-6xl md:text-8xl font-black leading-none uppercase tracking-tighter italic">KOYANGI<br>STORE</h1>
                 </div>
             </div>
-        </div>
+            <div class="hidden md:block star-decor animate-bounce"></div>
+        </header>
 
-        <div class="p-6 section-line">
-            <h2 class="font-fredoka font-bold text-lg mb-4 uppercase inline-block border-b-2 border-black">Info</h2>
-            <div class="p-4 sketch-border bg-white italic text-sm text-center leading-relaxed">
-                "ยินดีต้อนรับเข้าสู่ทางร้าน ร้านเรารับทำ GoogleSheet เว็บเรทราคาแอพพรี เว็บเรทราคางานป้าย เว็บเรทราคาเติมเกมส์ ยินดีให้บริการค่ะ"
+        <section class="mb-16">
+            <div class="flex items-center gap-4 mb-6">
+                <div class="h-1 flex-1 bg-black"></div>
+                <h2 class="font-fredoka font-bold text-2xl uppercase">Introduction</h2>
+                <div class="h-1 w-12 bg-black"></div>
             </div>
-        </div>
+            <div class="max-w-3xl sketch-border bg-white p-8 relative">
+                <div class="absolute -top-4 -right-4 w-12 h-12 checkerboard border-2 border-black"></div>
+                <p class="text-xl md:text-2xl font-medium leading-relaxed italic">
+                    "ยินดีต้อนรับเข้าสู่ทางร้าน ร้านเรารับทำ GoogleSheet เว็บเรทราคาแอพพรี เว็บเรทราคางานป้าย เว็บเรทราคาเติมเกมส์ ยินดีให้บริการค่ะ"
+                </p>
+            </div>
+        </section>
 
-        <div class="py-2 section-line">
-            <h3 class="px-6 font-fredoka font-bold text-lg mb-4 uppercase">Services</h3>
-            <div class="horizontal-scroll px-6">
+        <section class="mb-16">
+            <h3 class="font-fredoka font-bold text-3xl mb-8 uppercase flex items-center gap-4">
+                <span class="w-8 h-8 checkerboard border-2 border-black inline-block"></span>
+                Services
+            </h3>
+            <div class="horizontal-scroll">
                 <div class="scroll-item">
-                    <div class="sketch-border-sm p-6 bg-white h-full">
-                        <div class="w-10 h-10 border-2 border-black rounded-full flex items-center justify-center mb-4">
-                            <span class="font-bold">1</span>
-                        </div>
-                        <h4 class="font-bold text-lg mb-1 leading-tight">รับทำป้าย โลโก้ ลายน้ำ</h4>
-                        <p class="text-xs text-gray-600">ออกแบบโลโก้ธุรกิจ ลายน้ำกันก๊อปปี้ และงานป้ายบัญชีทุกรูปแบบ</p>
+                    <div class="sketch-border-sm p-8 bg-white h-full transform hover:scale-105 transition-transform">
+                        <div class="font-black text-4xl mb-4 underline">01</div>
+                        <h4 class="font-bold text-2xl mb-2">Graphic Design</h4>
+                        <p class="text-gray-600">รับทำป้าย โลโก้ ลายน้ำ ออกแบบโลโก้ธุรกิจ ลายน้ำกันก๊อปปี้ และงานป้ายบัญชี</p>
                     </div>
                 </div>
                 <div class="scroll-item">
-                    <div class="sketch-border-sm p-6 bg-white h-full">
-                        <div class="w-10 h-10 border-2 border-black rounded-full flex items-center justify-center mb-4">
-                            <span class="font-bold">2</span>
-                        </div>
-                        <h4 class="font-bold text-lg mb-1 leading-tight">GoogleSheet คิวชีต</h4>
-                        <p class="text-xs text-gray-600">ระบบจัดการคิวงาน รายรับ-รายจ่าย คำนวณอัตโนมัติ ใช้งานง่าย</p>
+                    <div class="sketch-border-sm p-8 bg-white h-full transform hover:scale-105 transition-transform">
+                        <div class="font-black text-4xl mb-4 underline">02</div>
+                        <h4 class="font-bold text-2xl mb-2">GoogleSheet</h4>
+                        <p class="text-gray-600">ระบบจัดการคิวงาน รายรับ-รายจ่าย คำนวณอัตโนมัติ ใช้งานง่าย</p>
                     </div>
                 </div>
                 <div class="scroll-item">
-                    <div class="sketch-border-sm p-6 bg-black text-white h-full">
-                        <div class="w-10 h-10 border-2 border-white rounded-full flex items-center justify-center mb-4 text-white">
-                            <span class="font-bold">3</span>
+                    <div class="sketch-border-sm p-8 bg-black text-white h-full transform hover:scale-105 transition-transform">
+                        <div class="font-black text-4xl mb-4 underline text-white">03</div>
+                        <h4 class="font-bold text-2xl mb-2">Web Design</h4>
+                        <p class="text-gray-400">เว็บเรทราคาแอพพรี, งานป้าย, หรือเว็บเติมเกมส์ สไตล์ทันสมัย</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid md:grid-cols-2 gap-12 mb-16">
+            <div class="sketch-border p-8 bg-white">
+                <h3 class="font-fredoka font-bold text-3xl mb-8 uppercase">Pricing</h3>
+                <div class="bg-black text-white p-6 mb-6 flex justify-between items-end">
+                    <div>
+                        <p class="text-xs uppercase opacity-70">Starting at</p>
+                        <p class="text-6xl font-black font-mitr">129.-</p>
+                    </div>
+                    <p class="text-sm italic opacity-60">/ 200 lines</p>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex justify-between border-b-2 border-black pb-2">
+                        <span class="font-bold">Extra Lines (>200)</span>
+                        <span class="font-black">139.-</span>
+                    </div>
+                    <div class="flex justify-between border-b-2 border-black pb-2">
+                        <span class="font-bold">GoogleSheet Start</span>
+                        <span class="font-black">159.-</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sketch-border p-8 bg-white relative overflow-hidden">
+                <div class="absolute right-[-20px] top-[-20px] w-20 h-20 checkerboard border-4 border-black rotate-45"></div>
+                <h3 class="font-fredoka font-bold text-3xl mb-8 uppercase">How to Order</h3>
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4">
+                        <span class="bg-black text-white w-8 h-8 flex items-center justify-center font-black">1</span>
+                        <div>
+                            <p class="font-bold uppercase">Details</p>
+                            <p class="text-sm">แจ้งข้อมูลและรูปแบบที่ต้องการ</p>
                         </div>
-                        <h4 class="font-bold text-lg mb-1 leading-tight">Website Design</h4>
-                        <p class="text-xs text-gray-400">เว็บเรทราคาแอพพรี, งานป้าย, หรือเว็บเติมเกมส์</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="bg-black text-white w-8 h-8 flex items-center justify-center font-black">2</span>
+                        <div>
+                            <p class="font-bold uppercase">Payment</p>
+                            <p class="text-sm">ชำระเงินเพื่อยืนยันคิวงาน</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="bg-black text-white w-8 h-8 flex items-center justify-center font-black">3</span>
+                        <div>
+                            <p class="font-bold uppercase">Delivery</p>
+                            <p class="text-sm">รอรับงานภายใน 4-8 ชม.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="p-6 section-line">
-            <h3 class="font-fredoka font-bold text-lg mb-6 uppercase">Pricing Plan</h3>
-            <div class="sketch-border p-6 bg-black text-white mb-4">
-                <p class="text-[10px] uppercase tracking-widest mb-1 opacity-70">Starting at</p>
-                <div class="text-5xl font-bold font-mitr">129.-</div>
-                <p class="text-[10px] mt-2 font-mitr opacity-60">* ไม่เกิน 200 lines</p>
+        <footer class="text-center py-12 border-t-4 border-black">
+            <div class="w-48 h-48 sketch-border mx-auto mb-8 bg-white p-4 group hover:rotate-0 transition-transform rotate-3">
+                <img src="scan.png" alt="LINE QR" class="w-full h-full object-cover grayscale">
             </div>
-            
-            <div class="space-y-3">
-                <div class="flex justify-between items-center p-4 sketch-border-sm bg-white">
-                    <span class="text-sm font-bold">เกิน 200 lines</span>
-                    <span class="font-black text-lg">139.-</span>
-                </div>
-                <div class="flex justify-between items-center p-4 sketch-border-sm bg-white">
-                    <span class="text-sm font-bold">GoogleSheet (เริ่มต้น)</span>
-                    <span class="font-black text-lg">159.-</span>
-                </div>
-            </div>
-        </div>
+            <p class="font-fredoka font-bold text-sm tracking-widest mb-2">LINE OFFICIAL</p>
+            <h4 class="font-fredoka font-black text-5xl uppercase">@KOYANGI</h4>
+        </footer>
 
-        <div class="p-6 section-line">
-            <h3 class="font-fredoka font-bold text-lg mb-8 uppercase">How to Order</h3>
-            <div class="space-y-8 relative">
-                <div class="absolute left-[15px] top-0 bottom-0 w-[2px] bg-black"></div>
-                
-                <div class="relative pl-12">
-                    <div class="absolute left-0 top-0 w-8 h-8 sketch-border bg-white flex items-center justify-center font-black text-xs">01</div>
-                    <h4 class="font-bold text-sm uppercase">Details</h4>
-                    <p class="text-xs text-gray-500 mt-1">ส่งข้อมูลและรูปแบบที่ต้องการ</p>
-                </div>
-                
-                <div class="relative pl-12">
-                    <div class="absolute left-0 top-0 w-8 h-8 sketch-border bg-white flex items-center justify-center font-black text-xs">02</div>
-                    <h4 class="font-bold text-sm uppercase">Payment</h4>
-                    <p class="text-xs text-gray-500 mt-1">ชำระเงินเพื่อเริ่มคิวงาน</p>
-                </div>
+    </main>
 
-                <div class="relative pl-12">
-                    <div class="absolute left-0 top-0 w-8 h-8 sketch-border bg-black text-white flex items-center justify-center font-black text-xs">03</div>
-                    <h4 class="font-bold text-sm uppercase">Done</h4>
-                    <p class="text-xs text-gray-500 mt-1">รอรับลิงก์งาน (4-8 ชม.)</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="p-10 text-center">
-            <div class="w-32 h-32 sketch-border mx-auto mb-4 bg-white p-2">
-                <img src="scan.png" alt="QR" class="w-full h-full object-cover grayscale">
-            </div>
-            <p class="font-fredoka font-bold text-xs tracking-widest opacity-50 uppercase">Contact Us</p>
-            <h4 class="font-fredoka font-black text-2xl uppercase">@KOYANGI</h4>
-        </div>
-
+    <div class="w-full h-12 checkerboard border-t-4 border-black flex items-center justify-center">
+        <span class="bg-white px-4 font-black text-xs tracking-tighter uppercase border-x-2 border-black">Koyangi Store Design Studio 2026</span>
     </div>
-
 </body>
 </html>
